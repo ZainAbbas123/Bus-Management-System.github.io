@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMasterPage.master.cs" Inherits="WebApplication12.MyMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title></title>
+     <link rel="stylesheet"href="Styles.css" />
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="menu-bar">
+        <ul>
+            <li class="active">Home<i class="fa fa-home"></i>
+            </li>
+            <li id="active1"><a href="#">Portfolio</a><i class="fa fa-user"></i>
+                  <div class="sub-menu-1">
+                      <ul>
+                          <li><a href="Customers.aspx">Customer</a></li>
+                          <li><a href="Managers.aspx">Manager</a></li>
+                          <li><a href="Functions.aspx">Functions</a></li>
+                          <li><a href="ProfileCards.aspx">ProfileCards</a></li>
+                      </ul>
+                  </div>
+            </li>
+
+
+            <li id="active2"><a href="#">Services</a><i class="fa fa-angellist"></i>
+                  <div class="sub-menu-1">
+                      <ul>
+                           <li><a href="#">See Buses</a></li>
+                          <li><a href="#">Booking</a></li>
+                          <li><a href="#">Buy Ticket</a></li>
+                          <li><a href="#">Delete Booking</a></li>
+                      </ul>
+                  </div>
+            </li>
+
+            <li id="active3"><a href="#">Contact Us</a><i class="fa fa-clone"></i></li>
+        </ul>
+    </div>
+
+      
+
+  <div class="slideshow-container">
+       <div class="mySlides fade">
+          <div class="numbertext"></div>
+            <img src="bus5.jpg" style="width:95%"/>
+        <div class="text"></div>
+    </div>
+
+     <div class="mySlides fade">
+        <div class="numbertext"></div>
+         <img src="bus6.jpg" style="width:95%"/>
+     <div class="text"></div>
+</div>
+
+      <div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="bus7.jpg" style="width:95%"/>
+  <div class="text"></div>
+</div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+        <div class="power">
+          <h3 style="text-align:center;"id="za"> Powered By ZUHA</h3>
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+</script>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
